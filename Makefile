@@ -1,4 +1,4 @@
-.PHONY: all build clean run tui test
+.PHONY: all build clean run tui test docker docker-run docker-stop
 
 # Default target
 all: build
@@ -36,3 +36,18 @@ test: build
 clean:
 	rm -f server/libprocess.so server/trading-pipeline
 	rm -f tui/tui-client
+
+# Docker commands
+docker:
+	@echo "Building Docker image..."
+	docker build -t trading-pipeline .
+
+docker-run: docker
+	@echo "Starting container..."
+	docker-compose up -d
+	@echo "Server running at http://localhost:8080"
+	@echo "Run 'make tui' to connect"
+
+docker-stop:
+	@echo "Stopping container..."
+	docker-compose down

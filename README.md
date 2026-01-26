@@ -110,6 +110,7 @@ TRADING-PIPELINE/
 - **Go** 1.23 or higher
 - **g++** (C++ compiler with C++11 support)
 - **make**
+- **Docker** (optional, for containerized deployment)
 
 ### macOS
 ```bash
@@ -149,6 +150,22 @@ make run
 **Terminal 2 - Launch the TUI:**
 ```bash
 make tui
+```
+
+### Docker
+
+```bash
+# Build and run with Docker
+make docker-run
+
+# Stop container
+make docker-stop
+```
+
+Or manually:
+```bash
+docker build -t trading-pipeline .
+docker run -p 8080:8080 trading-pipeline
 ```
 
 ### TUI Controls
@@ -218,6 +235,9 @@ curl http://localhost:8080/api/coins
 | `make tui` | Build and run TUI client |
 | `make test` | Run test suite |
 | `make clean` | Remove build artifacts |
+| `make docker` | Build Docker image |
+| `make docker-run` | Run server in Docker container |
+| `make docker-stop` | Stop Docker container |
 
 ## License
 

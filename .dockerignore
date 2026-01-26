@@ -3,10 +3,20 @@ server/libprocess.so
 server/trading-pipeline
 tui/tui-client
 
+# Git
+.git
+.gitignore
+
 # IDE
 .vscode/
 .idea/
 
 # OS
 .DS_Store
+
+# Demo
 demo.mp4
+demo.gif
+
+# Docs
+README.md
